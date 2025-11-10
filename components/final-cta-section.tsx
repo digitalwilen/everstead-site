@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { trackConsultationRequest, trackPlanRequest, trackEvent } from "@/lib/analytics"
+import ContactForm from "./contact-form";
 
 export function FinalCtaSection() {
   return (
@@ -24,18 +25,25 @@ export function FinalCtaSection() {
               }}
             >
               Schedule Your Free Clarity Call
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-6 rounded-xl bg-transparent font-semibold"
-              onClick={() => {
-                trackPlanRequest("final_cta_secondary")
-              }}
-            >
-              Talk to a Transition Consultant
-            </Button>
-          </div>
+     </Button>
+
+<Button
+  size="lg"
+  variant="outline"
+  className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-6 rounded-xl bg-transparent font-semibold"
+  onClick={() => {
+    trackPlanRequest("final_cta_secondary")
+  }}
+>
+  Talk to a Transition Consultant
+</Button>
+
+{/* ✅ Add the form below both buttons */}
+<div className="pt-8">
+  <ContactForm />
+</div>
+
+          </div> 
 
           <div className="pt-8 border-t border-gray-700 mt-12">
             <p className="text-gray-400 text-sm mb-6">
