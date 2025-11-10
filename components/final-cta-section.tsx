@@ -18,26 +18,27 @@ export function FinalCtaSection() {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button
-              size="lg"
-              className="bg-[var(--color-everstead-green)] text-white hover:bg-[var(--color-everstead-green)]/90 text-lg px-8 py-6 rounded-xl font-semibold"
-              onClick={() => {
-                // primary CTA → email compose
-                window.location.href =
-                  "mailto:hello@everstead.com?subject=Clarity%20Call%20Request%20—%20Everstead&body=Hi%20Everstead%2C%0A%0AQuick%20summary%20of%20our%20situation%3A%20%5Badd%20details%5D%0ACity%3A%20%5Bcity%5D%0APhone%3A%20%5Bnumber%5D%0A%0AThanks.";
-                trackConsultationRequest("final_cta_primary");
-              }}
-            >
-              Schedule Your Free Clarity Call
-            </Button>
+  size="lg"
+  className="bg-[var(--color-everstead-green)] text-white hover:bg-[var(--color-everstead-green)]/90 text-lg px-8 py-6 rounded-xl font-semibold"
+  onClick={() => {
+    const section = document.getElementById("clarity-call");
+    section?.scrollIntoView({ behavior: "smooth" });
+  }}
+>
+  Schedule Your Free Clarity Call
+</Button>
+
 
             <Button
               size="lg"
               variant="outline"
               className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-6 rounded-xl bg-transparent font-semibold"
               onClick={() => {
-                document.getElementById("process")?.scrollIntoView({ behavior: "smooth" });
-                trackPlanRequest("final_cta_secondary");
-              }}
+                onClick={() => {
+  const section = document.getElementById("clarity-call");
+  section?.scrollIntoView({ behavior: "smooth" });
+}}
+
             >
               Talk to a Transition Consultant
             </Button>
