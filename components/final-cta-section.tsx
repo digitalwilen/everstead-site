@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { Button } from "@/components/ui/button";
-import { trackConsultationRequest, trackPlanRequest, trackEvent } from "@/lib/analytics";
+import { Button } from "@/components/ui/button"
+import { trackEvent } from "@/lib/analytics"
 
 export function FinalCtaSection() {
   return (
@@ -18,29 +18,20 @@ export function FinalCtaSection() {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button
-  size="lg"
-  className="bg-[var(--color-everstead-green)] text-white hover:bg-[var(--color-everstead-green)]/90 text-lg px-8 py-6 rounded-xl font-semibold"
-  onClick={() => {
-    const section = document.getElementById("clarity-call");
-    section?.scrollIntoView({ behavior: "smooth" });
-  }}
->
-  Schedule Your Free Clarity Call
-</Button>
-
+              size="lg"
+              asChild
+              className="bg-[var(--color-everstead-green)] text-white hover:bg-[var(--color-everstead-green)]/90 text-lg px-8 py-6 rounded-xl font-semibold"
+            >
+              <a href="#clarity-call">Schedule Your Free Clarity Call</a>
+            </Button>
 
             <Button
               size="lg"
               variant="outline"
+              asChild
               className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-6 rounded-xl bg-transparent font-semibold"
-              onClick={() => {
-                onClick={() => {
-  const section = document.getElementById("clarity-call");
-  section?.scrollIntoView({ behavior: "smooth" });
-}}
-
             >
-              Talk to a Transition Consultant
+              <a href="#clarity-call">Talk to a Transition Consultant</a>
             </Button>
           </div>
 
@@ -77,5 +68,5 @@ export function FinalCtaSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }
