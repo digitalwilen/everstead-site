@@ -78,11 +78,11 @@ export function SiteHeader() {
           {/* Phone + Mobile Menu Button */}
           <div className="flex items-center gap-4">
             <a
-              href="tel:+15125550100"
+              href="tel:+12405932485"
               className="text-sm font-semibold text-[var(--color-everstead-blue)] hover:text-[var(--color-everstead-blue-dark)] transition-colors"
               onClick={() => trackEvent("phone_click", { location: "header" })}
             >
-              (512) 555-0100
+              (240) 593-2485
             </a>
 
             <button
