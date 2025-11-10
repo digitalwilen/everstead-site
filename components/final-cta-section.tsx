@@ -17,29 +17,32 @@ export function FinalCtaSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button
-              size="lg"
-              className="bg-[var(--color-everstead-green)] text-white hover:bg-[var(--color-everstead-green)]/90 text-lg px-8 py-6 rounded-xl font-semibold"
-              onClick={() => {
-                trackConsultationRequest("final_cta_primary")
-              }}
-            >
-              Schedule Your Free Clarity Call
-     </Button>
+  <Button
+    size="lg"
+    className="bg-[var(--color-everstead-green)] text-white hover:bg-[var(--color-everstead-green)]/90 text-lg px-8 py-6 rounded-xl font-semibold"
+    onClick={() => {
+      trackConsultationRequest("final_cta_primary")
+    }}
+  >
+    Schedule Your Free Clarity Call
+  </Button>
 
-<Button
-  size="lg"
-  variant="outline"
-  className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-6 rounded-xl bg-transparent font-semibold"
-  onClick={() => {
-    trackPlanRequest("final_cta_secondary")
-  }}
->
-  Talk to a Transition Consultant
-</Button>
+  <Button
+    size="lg"
+    variant="outline"
+    className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-6 rounded-xl bg-transparent font-semibold"
+    onClick={() => {
+      // optional: smooth-scroll to Process section
+      document.getElementById("process")?.scrollIntoView({ behavior: "smooth" });
+      trackPlanRequest("final_cta_secondary")
+    }}
+  >
+    Talk to a Transition Consultant
+  </Button>
+</div>  {/* <-- CLOSE the flex row here. Buttons only inside this row. */}
 
-{/* ✅ Add the form below both buttons */}
-<div className="pt-8">
+{/* Form lives OUTSIDE the row so it spans the width below the buttons */}
+<div className="pt-8 max-w-lg mx-auto">
   <ContactForm />
 </div>
 
