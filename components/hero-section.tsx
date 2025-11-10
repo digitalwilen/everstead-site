@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
-import { trackCtaClick, trackPlanRequest, trackConsultationRequest } from "@/lib/analytics"
 
 export function HeroSection() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
@@ -12,7 +11,6 @@ export function HeroSection() {
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
     setPrefersReducedMotion(mediaQuery.matches)
-
     const handleChange = () => setPrefersReducedMotion(mediaQuery.matches)
     mediaQuery.addEventListener("change", handleChange)
     return () => mediaQuery.removeEventListener("change", handleChange)
@@ -20,10 +18,7 @@ export function HeroSection() {
 
   const variants = prefersReducedMotion
     ? { initial: { opacity: 1, y: 0 }, animate: { opacity: 1, y: 0 } }
-    : {
-        initial: { opacity: 0, y: 20 },
-        animate: { opacity: 1, y: 0 },
-      }
+    : { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 } }
 
   return (
     <section className="bg-white">
@@ -53,24 +48,19 @@ export function HeroSection() {
             >
               <Button
                 size="lg"
+                asChild
                 className="bg-[var(--color-everstead-green)] hover:bg-[var(--color-everstead-charcoal)] text-white text-lg px-8 py-6 rounded-xl"
-                onClick={() => {
-                  trackPlanRequest("hero_primary")
-                  trackCtaClick("Schedule Your Free Clarity Call", "hero")
-                }}
               >
-                Schedule Your Free Clarity Call
+                <a href="#clarity-call">Schedule Your Free Clarity Call</a>
               </Button>
+
               <Button
                 size="lg"
                 variant="outline"
+                asChild
                 className="border-2 border-[var(--color-everstead-green)] text-[var(--color-everstead-green)] hover:bg-[var(--color-everstead-sage)] hover:text-[var(--color-everstead-charcoal)] text-lg px-8 py-6 rounded-xl bg-transparent"
-                onClick={() => {
-                  trackConsultationRequest("hero_secondary")
-                  trackCtaClick("Talk to a Transition Consultant", "hero")
-                }}
               >
-                Talk to a Transition Consultant
+                <a href="#clarity-call">Talk to a Transition Consultant</a>
               </Button>
             </motion.div>
 
@@ -82,12 +72,7 @@ export function HeroSection() {
             >
               <div className="flex flex-wrap items-center gap-4 text-sm text-gray-700">
                 <div className="flex items-center gap-2">
-                  <svg
-                    className="w-5 h-5 text-[var(--color-everstead-green)]"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    aria-hidden="true"
-                  >
+                  <svg className="w-5 h-5 text-[var(--color-everstead-green)]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path
                       fillRule="evenodd"
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -97,34 +82,24 @@ export function HeroSection() {
                   <span>Vetted local vendors</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <svg
-                    className="w-5 h-5 text-[var(--color-everstead-green)]"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    aria-hidden="true"
-                  >
+                  <svg className="w-5 h-5 text-[var(--color-everstead-green)]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path
                       fillRule="evenodd"
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span>Licensed & Insured</span>
+                  <span>Licensed &amp; Insured</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <svg
-                    className="w-5 h-5 text-[var(--color-everstead-green)]"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    aria-hidden="true"
-                  >
+                  <svg className="w-5 h-5 text-[var(--color-everstead-green)]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path
                       fillRule="evenodd"
                       d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span>Serving Austin, TX & Raleigh, NC</span>
+                  <span>Serving Austin, TX &amp; Raleigh, NC</span>
                 </div>
               </div>
               <p className="text-sm italic text-gray-600">
