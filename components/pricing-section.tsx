@@ -61,7 +61,7 @@ export function PricingSection() {
 
             <div className="bg-gray-50 p-5 md:p-6 rounded-xl space-y-3">
               <h4 className="text-lg font-semibold text-[var(--color-everstead-blue-dark)]">
-                Typical vendor ranges (Austin, TX)
+                Typical vendor ranges (Austin, TX | Raleigh, NC)
               </h4>
               <div className="text-sm text-gray-700 leading-relaxed space-y-2">
                 <p>
